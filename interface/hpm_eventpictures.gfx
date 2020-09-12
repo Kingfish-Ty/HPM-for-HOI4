@@ -1,0 +1,22 @@
+spriteTypes = {
+	
+	spriteType = {
+		name = "GFX_report_event_danzig_german_001"
+		texturefile = "gfx/event_pictures/report_event_danzig_german_001.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_news_event_danzig_german_001"
+		texturefile = "gfx/event_pictures/news_event_danzig_german_001.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_report_event_italian_civil_war_001"
+		texturefile = "gfx/event_pictures/report_event_italian_civil_war_001.dds"
+	}
+
+	spriteType = {
+		name = "GFX_news_event_italian_civil_war_001"
+		texturefile = "gfx/event_pictures/news_event_italian_civil_war_001.dds"
+	}
+}

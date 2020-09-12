@@ -1,0 +1,46 @@
+FIN_continuation_war = {
+
+	FIN_declare_continuation_war = {
+
+		icon = GFX_decision_generic_ignite_civil_war
+
+		allowed = {
+			original_tag = FIN
+		}
+
+		available = {
+			NOT = { has_war_with = SOV }
+			146 = { is_owned_and_controlled_by = SOV }
+			GER = { has_war_with = SOV }
+			GER = { has_capitulated = no }
+		}
+
+		cost = 5
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = 100
+				is_historical_focus_on = yes
+			}
+		}
+
+		visible = {
+			original_tag = FIN
+			146 = { is_owned_and_controlled_by = SOV }
+			NOT = { has_war_with = SOV }
+		}
+
+		complete_effect = {
+			declare_war_on = {
+				target = SOV
+				type = take_core_state
+			}
+
+		}
+
+	}
+
+}

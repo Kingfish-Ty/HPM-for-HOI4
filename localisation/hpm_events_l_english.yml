@@ -1,0 +1,11 @@
+﻿# \n is line break \n\n is a new paragraph
+l_english:
+ germany.hpm.1.t:0 "The Reincorporation of Danzig"
+ germany.hpm.1.d:0 "As the Wehrmacht began moving into Poland today, the Danzig Police and the SS swept through the Free City of Danzig, rooting out all Polish resistance and preparing for reincorporation into the Reich. The Polish Post Office, an extraterritorial compound belonging to the Polish government, became the site of a 15 hour shootout between the Polish personnel at the building and city police aided by the SS and SA. In the end, the Poles could not hope to withstand the assault and were forced to surrender. Now in the hands of the Danzig Police and the Gestapo, they await their fate. In any case, Danzig is under Berlin's control once more."
+ germany.hpm.1.a:0 "Once more, Danzig is German..."
+ hpm_news.1.t:0 "Danzig Joins Germany"
+ hpm_news.1.d:0 "With the invasion of Poland underway, the former government of the Free City of Danzig declared the city-state to be dissolved and that Danzig has rejoined the Reich. Police and SS units swept the city and eliminated a pocket of Polish resistance defending the Polish Post Office. With Danzig reincorporated into the Reich, it is rumored that the Führer himself will be traveling to the city to give a speech to commemorate the triumph of the German people.\n\nDespite the Reich's triumph, the battle for Poland still rages on."
+ hpm_news.1.a:0 "...and this time, Danzig shall remain German."
+ hpm_news.1.b:0 "Danzig may be, but Poland is not yet lost."
+ hpm_news.1.c:0 "Worrying."
+ hpm_news.1.e:0 "A triumph for the Reich!"

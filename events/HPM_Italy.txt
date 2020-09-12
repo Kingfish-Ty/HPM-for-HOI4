@@ -1,0 +1,144 @@
+﻿###########################
+# Italian HPM Events
+###########################
+
+add_namespace = italy.hpm
+
+# Italian Civil War
+country_event = {
+	id = italy.hpm.1
+	title = italy.hpm.1.t
+	desc = italy.hpm.1.d
+	picture = GFX_report_event_italian_civil_war_001
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = ITA
+		has_government = fascism
+		is_in_faction_with = GER
+		has_war_with = USA
+		has_war_with = SOV
+		SOV = { has_capitulated = no }
+		any_enemy_country = {
+			NOT = { has_government = communism }
+			has_full_control_of_state = 115
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 7
+	}
+	
+	option = { # Stay Fascist
+		name = italy.hpm.1.a
+		hidden_effect = {
+			remove_unit_leader = 1002
+			remove_unit_leader = 1003
+			remove_unit_leader = 1005
+			remove_unit_leader = 1006
+			remove_unit_leader = 1009
+		}
+		start_civil_war = {
+			ruling_party = fascism
+			ideology = neutrality
+			size = 0.3
+			capital = 2
+			states = { 115 }
+			keep_unit_leaders = {
+				1008
+			}
+		}
+		random_other_country = {
+			limit = {
+				original_tag = ITA
+				has_government = neutrality
+			}
+			set_country_flag = ITA_civil_war_flag
+			set_cosmetic_tag = ITA_REBEL_kingdom
+			set_stability = 0.7
+			set_war_support = 0.9
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.49
+			}
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.10
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}
+			declare_war_on = {
+				target = GER
+				type = topple_government
+			}			
+		}
+		hidden_effect = {
+			every_unit_leader = {
+				limit = {
+					OR = {
+						has_id = 1001
+						has_id = 1004
+						has_id = 1010
+						has_id = 1011
+						has_id = 1012
+						has_id = 1013
+					}
+				}
+				random_country = {
+					limit = {
+						original_tag = ITA
+						has_government = neutrality
+					}
+					PREV = {
+						set_nationality = PREV
+					}
+				}
+			}
+			if = {
+				limit = {
+					ENG = { 
+						is_faction_leader = yes
+						has_war_with = GER
+					}
+				}
+				ENG = { add_to_faction = ITB }
+				else = {
+					USA = { add_to_faction = ITB }
+				}
+			}
+		}
+		set_cosmetic_tag = ITA_REBEL_fascism
+		remove_ideas = victor_emmanuel
+		GER = {
+			set_autonomy = {
+				target = ITA
+				autonomy_state = autonomy_satellite
+			}
+			transfer_state = 39
+			transfer_state = 736
+			every_state = { 
+				limit = {
+					is_owned_by = ITA
+					NOT = { is_core_of = ITA }
+				}
+				GER = { transfer_state = PREV }
+			}
+		}
+		hidden_effect = {
+			news_event = { hours = 6 id = hpm_news.2 }
+		}
+	}
+#	option = { # Join Allies
+#		name = italy.hpm.1.b
+#		start_civil_war = {
+#			ideology = fascism
+#			size = 0.7
+#		}
+#		hidden_effect = {
+#			news_event = { hours = 6 id = hpm_news.2 }
+#		}
+#	}
+#}

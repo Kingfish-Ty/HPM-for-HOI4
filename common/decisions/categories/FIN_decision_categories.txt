@@ -1,0 +1,18 @@
+################
+##### FIN ######
+################
+
+FIN_continuation_war = {
+	
+	icon = GFX_decision_category_military_operation
+
+	picture = GFX_decision_winterwar
+
+	allowed = {
+		original_tag = FIN
+	}
+
+	visible = {
+		SOV = { owns_state = 146 }
+	}
+}

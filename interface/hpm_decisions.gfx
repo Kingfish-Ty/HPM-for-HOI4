@@ -1,0 +1,9 @@
+spriteTypes = {	
+
+	### categories
+	
+	spriteType = {
+		name = "GFX_decision_winterwar"
+		texturefile = "gfx/interface/decisions/decision_winterwar.dds"
+	}
+}

@@ -1,0 +1,88 @@
+﻿###########################
+# HPM News Events
+###########################
+
+add_namespace = hpm_news
+
+# Danzig Joins Germany
+news_event = {
+	id = hpm_news.1
+	title = hpm_news.1.t
+	desc = hpm_news.1.d
+	picture = GFX_news_event_danzig_german_001
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = { # ...and this time, Danzig shall remain German.
+		name = hpm_news.1.a
+		trigger = { TAG = GER }
+	}
+	option = { # Danzig may be, but Poland is not yet lost.
+		name = hpm_news.1.b
+		trigger = {
+			OR = {
+				TAG = POL
+				is_in_faction_with = POL
+			}
+		}
+	}
+	option = { # Worrying.
+		name = hpm_news.1.c
+		trigger = {
+			NOT = { TAG = GER }
+			NOT = { TAG = POL }
+			NOT = { is_in_faction_with = GER }
+			NOT = { is_in_faction_with = POL }
+		}
+	}
+	option = { # A triumph for the Reich!
+		name = hpm_news.1.e
+		trigger = {
+			NOT = { TAG = GER }
+			is_in_faction_with = GER
+		}
+	}
+}
+# Italian Civil War Begins
+news_event = {
+	id = hpm_news.2
+	title = hpm_news.2.t
+	desc = hpm_news.2.d
+	picture = GFX_news_event_italian_civil_war_001
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = { # 
+		name = hpm_news.2.a
+		trigger = { TAG = GER }
+	}
+	option = { # 
+		name = hpm_news.2.b
+		trigger = {
+			OR = {
+				TAG = POL
+				is_in_faction_with = POL
+			}
+		}
+	}
+	option = { # 
+		name = hpm_news.2.c
+		trigger = {
+			NOT = { TAG = GER }
+			NOT = { TAG = POL }
+			NOT = { is_in_faction_with = GER }
+			NOT = { is_in_faction_with = POL }
+		}
+	}
+	option = { # 
+		name = hpm_news.2.e
+		trigger = {
+			NOT = { TAG = GER }
+			is_in_faction_with = GER
+		}
+	}
+}
