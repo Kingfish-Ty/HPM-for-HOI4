@@ -80,7 +80,7 @@ give_military_access = POL
 create_country_leader = {
 	name = "Arthur Greiser"
 	desc = ""
-	picture = "Portrait_Germany_Generic_land_1.dds"
+	picture = "GFX_portrait_danzig_arthur_greiser"
 	ideology = nazism
 	traits = {
 		#

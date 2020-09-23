@@ -1,0 +1,411 @@
+###########################
+# Soviet HPM Events
+###########################
+
+add_namespace = soviet.hpm
+
+#poland capitulate
+country_event = {
+	id = soviet.hpm.1
+	title = soviet.hpm.1.t
+	desc = soviet.hpm.1.d
+	picture = GFX_report_event_soviet_german_soldier_handshake
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = SOV
+		has_government = communism
+		has_war_with = POL
+		NOT = { has_war_with = GER }
+		POL = { has_capitulated = yes }
+		GER = { has_capitulated = no }
+		SOV = {
+			has_idea = SOV_molotov_ribbentrop_pact
+		}
+		has_global_flag = soviets_attack
+	}
+	
+	mean_time_to_happen = {
+		days = 7
+	}
+	
+	option = {
+		name = soviet.hpm.1.a
+		
+		SOV = {
+			#89
+			add_state_core = 89
+			transfer_state = 89
+			#91
+			add_state_core = 91
+			transfer_state = 91
+			#93
+			add_state_core = 93
+			transfer_state = 93
+			#94
+			add_state_core = 94
+			transfer_state = 94
+			#95
+			add_state_core = 95
+			transfer_state = 95
+			#96
+			add_state_core = 96
+			transfer_state = 96
+			#97
+			add_state_core = 97
+			transfer_state = 97
+			#784
+			add_state_core = 784
+			transfer_state = 784
+			
+		}
+		POL = { remove_ideas = POL_2_pol_sov_war }
+	}
+}
+country_event = {
+	id = soviet.hpm.2
+	title = soviet.hpm.2.t
+	desc = soviet.hpm.2.d
+	picture = GFX_report_event_poland_rejects
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = soviet.hpm.2.a
+		ai_chance = { factor = 10 }
+		SOV = {
+		declare_war_on = {
+			target = POL
+			type = take_state
+			generator = { 89 91 93 94 95 96 97 784 }		
+		}
+		}
+		set_global_flag = soviets_attack
+		POL = { add_ideas = POL_2_pol_sov_war }
+	}
+
+	option = {
+		name = soviet.hpm.2.b
+		ai_chance = { factor = 2 
+		modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+			}
+		GER = { 
+			add_opinion_modifier = { target = SOV modifier = refused_MR_pact } 
+			diplomatic_relation = {
+				country = SOV
+				relation = non_aggression_pact
+				active = no
+			}
+			country_event = { id = germany.1002 days = 2 }
+		}
+		clr_global_flag = sov_yes_pact		
+		SOV = {
+			remove_state_claim = 96
+			remove_state_claim = 95
+			remove_state_claim = 94
+			remove_state_claim = 93
+			remove_state_claim = 91
+			remove_state_claim = 97
+			remove_state_claim = 89
+			remove_state_claim = 784			
+		}
+		set_global_flag = soviet_pact_not_active
+		}
+}
+country_event = { 
+	id = soviet.hpm.3
+	title = soviet.hpm.3.t
+	desc = soviet.hpm.3.d
+	picture = GFX_report_event_canada_treaty
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = soviet.hpm.3.a
+		ai_chance = { 
+			factor = 10 
+			modifier = {
+			OR = {
+				has_war_support < 0.5
+				has_stability < 0.5
+				is_historical_focus_on = yes
+				}
+				factor = 0
+			}
+			modifier = {
+			AND = {
+				has_war_support > 0.8
+				has_stability > 0.8
+				}
+				factor = 10
+			}
+		}
+		
+		ENG = { country_event = { hours = 12 id = soviet.hpm.4 } }
+		custom_effect_tooltip = FRA_yes_tt
+	}
+
+	option = {
+		name = soviet.hpm.3.b
+		ai_chance = { 
+			factor = 10 
+			modifier = {
+			OR = {
+				has_war_support < 0.5
+				has_stability < 0.5
+				}
+				factor = 10
+			}
+			modifier = {
+			AND = {
+				has_war_support > 0.8
+				has_stability > 0.8
+				}
+				factor = 0
+			}
+		}
+		SOV = { country_event = { hours = 12 id = soviet.hpm.6 } }
+		custom_effect_tooltip = finish_tt		
+	}
+}
+country_event = { 
+	id = soviet.hpm.4
+	title = soviet.hpm.4.t
+	desc = soviet.hpm.4.d
+	picture = GFX_report_event_canada_treaty
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = soviet.hpm.4.a
+		ai_chance = { 
+			factor = 10 
+			modifier = {
+			OR = {
+				has_war_support < 0.5
+				has_stability < 0.5
+				}
+				factor = 0
+			}
+			modifier = {
+			AND = {
+				has_war_support > 0.8
+				has_stability > 0.8
+				}
+				factor = 10
+			}
+		}
+		
+		if = { 
+			limit = { is_faction_leader = yes }
+			ENG = { add_to_faction = FRA }
+			ENG = { add_to_faction = SOV }
+		}
+		if = { 
+			limit = {
+				ENG = { is_faction_leader = no } 
+				SOV = { is_faction_leader = yes } 
+			}
+			SOV = { add_to_faction = FRA }
+			SOV = { add_to_faction = ENG }
+		}
+		if = { 
+			limit = { 
+				ENG = { is_faction_leader = no } 
+				SOV = { is_faction_leader = no }
+				FRA = { is_faction_leader = yes } 
+			}
+			FRA = { add_to_faction = SOV }
+			FRA = { add_to_faction = ENG }
+		}
+		if = { 
+			limit = { 
+				ENG = { is_faction_leader = no }
+				SOV = { is_faction_leader = no }
+				FRA = { is_faction_leader = no } 
+			} 
+			create_faction = Allies
+			ENG = { add_to_faction = FRA }
+			ENG = { add_to_faction = SOV }
+		}
+		if = {
+			limit = { POL = { exists = yes } }
+				POL = { country_event = { hours = 6 id = soviet.hpm.5 } }
+		}
+		ENG = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = GER
+			}
+		}
+			FRA = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = GER
+			}
+			}
+		if = {
+		limit = { SOV = { any_neighbor_country = { tag = GER } } }
+			SOV = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = GER
+			}
+			}
+			}
+			hidden_effect = {
+			news_event = { days = 7 id = hpm_news.6 }
+		}
+		custom_effect_tooltip = ENG_yes_tt
+	}
+
+	option = {
+		name = soviet.hpm.4.b
+		ai_chance = { 
+			factor = 10 
+			modifier = {
+			OR = {
+				has_war_support < 0.5
+				has_stability < 0.5
+				}
+				factor = 10
+			}
+			modifier = {
+			AND = {
+				has_war_support > 0.8
+				has_stability > 0.8
+				}
+				factor = 0
+			}
+		}
+		
+		SOV = { country_event = { hours = 12 id = soviet.hpm.6 } }
+		custom_effect_tooltip = finish_tt
+		}
+}
+country_event={ 
+	id = soviet.hpm.5
+	title = soviet.hpm.5.t
+	desc = soviet.hpm.5.d
+	picture = GFX_report_event_canada_treaty
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = soviet.hpm.5.a
+		ai_chance = { factor = 10 }
+		if = { 
+			limit = { ENG = { is_faction_leader = yes } } 
+			ENG = { add_to_faction = POL }
+		}
+		if = { 
+			limit = { 
+				ENG = { is_faction_leader = no }  
+				SOV = { is_faction_leader = yes } 
+					 } 
+			SOV = { add_to_faction = POL }
+		}
+		if = { 
+			limit = { ENG = { is_faction_leader = no } 
+			SOV = { is_faction_leader = no }  
+			FRA = { is_faction_leader = yes } }			
+			FRA = { add_to_faction = POL }
+		}
+		if = {
+			limit = {
+				POL = {
+					any_neighbor_country = { original_tag = GER } 
+				}
+			}
+			POL = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = GER
+			}
+			}
+		}
+		if = {
+			limit = {
+				POL = {
+					any_neighbor_country = { original_tag = GER } 
+					any_neighbor_country = { tag = SOV } 
+				}
+			}
+			SOV = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = GER
+			}
+			}
+		}
+		
+		}
+	option = {
+		name = soviet.hpm.5.b
+		ai_chance = { factor = 15 }
+		POL = { give_military_access = SOV }
+		if = {
+			limit = {
+				POL = {
+					any_neighbor_country = { original_tag = GER } 
+					any_neighbor_country = { tag = SOV } 
+				}
+			}
+			SOV = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = GER
+			}
+			}
+		}
+		}
+	option = {
+		name = soviet.hpm.5.c
+		ai_chance = { factor = 7 }
+		SOV = { country_event = { hours = 12 id = soviet.hpm.7 } }
+		custom_effect_tooltip = POL_no_ma_tt
+		
+		}
+}
+country_event = { 
+	id = soviet.hpm.6
+	title = soviet.hpm.6.t
+	desc = soviet.hpm.6.d
+	picture = GFX_report_event_canada_treaty
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = soviet.hpm.6.a
+		ai_chance = { factor = 10 }
+		add_opinion_modifier = {
+			target = ENG
+			modifier = medium_decrease 
+		}
+		add_opinion_modifier = {
+			target = FRA
+			modifier = medium_decrease 
+		}
+		}
+}
+country_event = {
+	id = soviet.hpm.7
+	title = soviet.hpm.7.t
+	desc = soviet.hpm.7.d
+	picture = GFX_report_event_canada_treaty
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = soviet.hpm.7.a
+		ai_chance = { factor = 10 }
+		add_opinion_modifier = {
+			target = POL
+			modifier = medium_decrease 
+		}
+		}
+}

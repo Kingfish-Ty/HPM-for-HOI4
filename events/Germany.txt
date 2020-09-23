@@ -3728,7 +3728,10 @@ country_event = {
 				limit = { GER = { owns_state = 664 } }
 				transfer_state = 664
 			}
-			GER = { transfer_state = 85 }
+			GER = {
+				transfer_state = 85
+				transfer_state = 797
+			}
 		}
 	}
 	
@@ -3806,6 +3809,7 @@ country_event = {
 			POL = { transfer_state = 664 }
 		}
 		transfer_state = 85
+		transfer_state = 797
 		if = {
 			limit = {
 				ENG = {
@@ -4168,6 +4172,118 @@ country_event = {
 			target = POL
 		}
 		add_state_core = 85
+		if = {
+			limit = { 
+				AND = {
+				SOV = { 
+					NOT = {
+						has_war_with = ENG
+						has_wargoal_against = ENG
+						has_war_with = POL
+						has_wargoal_against = POL
+					}
+					NOT = {
+					AND = {
+				OR = {
+					owns_state = 96
+					any_other_country = {
+						is_in_faction_with = SOV
+						SOV = {
+							is_faction_leader = yes
+						}
+						owns_state = 96
+					}
+				}
+				OR = {
+					owns_state = 95
+					any_other_country = {
+						is_in_faction_with = SOV
+						SOV = {
+							is_faction_leader = yes
+						}
+						owns_state = 95
+					}
+				}
+				OR = {
+					owns_state = 94
+					any_other_country = {
+						is_in_faction_with = SOV
+						SOV = {
+							is_faction_leader = yes
+						}
+						owns_state = 94
+					}
+				}
+				OR = {
+					owns_state = 93
+					any_other_country = {
+						is_in_faction_with = SOV
+						SOV = {
+							is_faction_leader = yes
+						}
+						owns_state = 93
+					}
+				}
+				OR = {
+					owns_state = 91
+					any_other_country = {
+						is_in_faction_with = SOV
+						SOV = {
+							is_faction_leader = yes
+						}
+						owns_state = 91
+					}
+				}
+				OR = {
+					owns_state = 97
+					any_other_country = {
+						is_in_faction_with = SOV
+						SOV = {
+							is_faction_leader = yes
+						}
+						owns_state = 97
+					}
+				}
+				OR = {
+					owns_state = 89
+					any_other_country = {
+						is_in_faction_with = SOV
+						SOV = {
+							is_faction_leader = yes
+						}
+						owns_state = 89
+					}
+				}
+				OR = {
+					owns_state = 784
+					any_other_country = {
+						is_in_faction_with = SOV
+						SOV = {
+							is_faction_leader = yes
+						}
+						owns_state = 784
+					}
+				}
+			}
+			}
+				}
+				NOT = {
+					any_country = {
+					OR = {
+						is_in_faction_with = ENG
+						tag = ENG
+						}
+						OR = {
+							has_war_with = SOV
+							has_wargoal_against = SOV
+						}
+					}
+				}
+				}
+			}
+			SOV = { country_event = { id = soviet.hpm.2 days = 16 } }
+		}
+		
 		if = {
 			limit = {
 				ENG = {
