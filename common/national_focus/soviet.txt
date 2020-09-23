@@ -297,12 +297,27 @@
 #		available = {
 #			has_war = yes
 #			has_tech = improved_medium_tank
-#			date > 1942.6.1
+#			custom_trigger_tooltip = {
+#				tooltip = SOV_has_not_officers_purged_tt
+#				NOT = { has_idea = officers_purged }			
+#				NOT = { has_idea = officers_purged_2 }			
+#				NOT = { has_idea = officers_purged_3 }			
+#				NOT = { has_idea = officers_purged_4 }			
+#				NOT = { has_idea = officers_purged_5 }			
+#				NOT = { has_idea = officers_purged_6 }			
+#				NOT = { has_idea = officers_purged_7 }			
+#				NOT = { has_idea = officers_purged_8 }			
+#				NOT = { has_idea = officers_purged_9 }			
+#				NOT = { has_idea = officers_purged_10 }			
+#			}
 #		}
 #
 #		search_filters = { FOCUS_FILTER_INDUSTRY }
 #		completion_reward = {
-#			add_ideas = mass_production
+#			#add_ideas = mass_production
+#			enable_equipments = {
+#				t_34_equipment_1
+#			}
 #		}
 #	}
 
@@ -2878,12 +2893,7 @@
 		available = {
 			OR = {
 				date > 1942.1.1
-				has_war_with = GER
-				has_war_with = JAP
-				has_war_with = ITA
-				has_war_with = ENG
-				has_war_with = FRA
-				has_war_with = USA
+				has_country_flag = SOV_war_since_purge
 			}
 		}
 		x = -1
@@ -2916,21 +2926,22 @@
 				uses = 2
 				category = land_doctrine
 			}
-			if = { limit = { has_idea = officers_purged } remove_ideas = officers_purged }
-			if = { limit = { has_idea = officers_purged_2 } remove_ideas = officers_purged_2 }
-			if = { limit = { has_idea = officers_purged_3 } remove_ideas = officers_purged_3 }
-			if = { limit = { has_idea = officers_purged_4 } remove_ideas = officers_purged_4 }
-			if = { limit = { has_idea = officers_purged_5 } remove_ideas = officers_purged_5 }
-			if = { limit = { has_idea = officers_purged_6 } remove_ideas = officers_purged_6 }
-			if = { limit = { has_idea = officers_purged_7 } remove_ideas = officers_purged_7 }
-			if = { limit = { has_idea = officers_purged_8 } remove_ideas = officers_purged_8 }
-			if = { limit = { has_idea = officers_purged_9 } remove_ideas = officers_purged_9 }
-			if = { limit = { has_idea = officers_purged_10 } remove_ideas = officers_purged_10 }			
-			if = { limit = { has_idea = SOV_great_patriotic_war } remove_ideas = SOV_great_patriotic_war }
-			if = { limit = { has_idea = SOV_great_patriotic_war_2 } remove_ideas = SOV_great_patriotic_war_2 }
-			if = { limit = { has_idea = SOV_great_patriotic_war_3 } remove_ideas = SOV_great_patriotic_war_3 }
-			if = { limit = { has_idea = SOV_great_patriotic_war_4 } remove_ideas = SOV_great_patriotic_war_4 }
-			if = { limit = { has_idea = SOV_great_patriotic_war_5 } remove_ideas = SOV_great_patriotic_war_5 }			
+			#if = { limit = { has_idea = officers_purged } remove_ideas = officers_purged }
+			#if = { limit = { has_idea = officers_purged_2 } remove_ideas = officers_purged_2 }
+			#if = { limit = { has_idea = officers_purged_3 } remove_ideas = officers_purged_3 }
+			#if = { limit = { has_idea = officers_purged_4 } remove_ideas = officers_purged_4 }
+			#if = { limit = { has_idea = officers_purged_5 } remove_ideas = officers_purged_5 }
+			#if = { limit = { has_idea = officers_purged_6 } remove_ideas = officers_purged_6 }
+			#if = { limit = { has_idea = officers_purged_7 } remove_ideas = officers_purged_7 }
+			#if = { limit = { has_idea = officers_purged_8 } remove_ideas = officers_purged_8 }
+			#if = { limit = { has_idea = officers_purged_9 } remove_ideas = officers_purged_9 }
+			#if = { limit = { has_idea = officers_purged_10 } remove_ideas = officers_purged_10 }			
+			#if = { limit = { has_idea = SOV_great_patriotic_war } remove_ideas = SOV_great_patriotic_war }
+			#if = { limit = { has_idea = SOV_great_patriotic_war_2 } remove_ideas = SOV_great_patriotic_war_2 }
+			#if = { limit = { has_idea = SOV_great_patriotic_war_3 } remove_ideas = SOV_great_patriotic_war_3 }
+			#if = { limit = { has_idea = SOV_great_patriotic_war_4 } remove_ideas = SOV_great_patriotic_war_4 }
+			#if = { limit = { has_idea = SOV_great_patriotic_war_5 } remove_ideas = SOV_great_patriotic_war_5 }
+			add_ideas = lessons_winter_war
 		}
 	}
 

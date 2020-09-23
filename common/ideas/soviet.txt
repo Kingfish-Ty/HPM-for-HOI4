@@ -1,5 +1,47 @@
 ideas = {
 	country = {
+		
+		lessons_winter_war = {
+		
+			removal_cost = -1
+			
+			allowed = {
+				always = no # Added via focus
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			picture = generic_morale_bonus
+			
+			modifier = {
+				winter_attrition_factor = -0.1
+				acclimatization_cold_climate_gain_factor = 0.5
+			}
+		}
+
+		barbarossa_shock = {
+		
+			removal_cost = -1
+			
+			allowed = {
+				always = no # Added via event
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+
+			picture = anti_soviet_pact
+			
+			modifier = {
+				air_air_superiority_attack_factor = -1
+				air_air_superiority_defence_factor = -1
+				army_attack_factor = -0.5
+			}
+		}
+
 		mass_production = {
 		
 			removal_cost = -1
@@ -21,6 +63,8 @@ ideas = {
 				}
 			}
 		}
+
+		### HPM Additions Above
 		
 		militarized_schools = {
 		

@@ -2395,6 +2395,54 @@ focus_tree = {
 	}
 
 	focus = {
+		id = GER_air_innovation_3
+		icon = GFX_goal_generic_air_doctrine
+		prerequisite = { focus = GER_air_innovation_2 }
+		x = 0
+		y = 1
+		relative_position_id = GER_air_innovation_2
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = { 
+			air_experience = 50
+
+			add_tech_bonus = {
+				name = air_bonus
+				bonus = 1.0
+				uses = 1
+				category = light_air
+				category = medium_air
+				category = heavy_air
+				category = naval_air
+			}
+		}
+	}
+
+	focus = {
+		id = GER_air_production
+		icon = GFX_goal_generic_air_production
+		prerequisite = { focus = GER_air_innovation_2 }
+		x = 2
+		y = 1
+		relative_position_id = GER_air_innovation_2
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = { 
+			add_ideas = GER_fighter_production
+		}
+	}
+
+	focus = {
 		id = GER_army_innovation_2
 		icon = GFX_goal_generic_army_tanks
 		prerequisite = { focus = GER_soviet_treaty }

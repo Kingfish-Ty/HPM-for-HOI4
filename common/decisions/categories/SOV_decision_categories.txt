@@ -1,0 +1,56 @@
+################
+#### SOVIET ####
+################
+
+SOV_industry_relocation = {
+	
+	allowed = {
+		original_tag = SOV
+	}
+
+	available = {
+		has_completed_focus = SOV_move_industry_to_urals
+	}
+
+	visible = {
+		has_war = yes
+	}
+}
+
+SOV_great_patriotic_war = {
+	allowed = {
+		original_tag = SOV
+	}
+	visible = {
+		has_war = yes
+	}
+		
+}
+SOV_sov_allies_negociations = {
+	
+	icon = GFX_decision_category_generic_political_actions
+
+	picture = GFX_decision_cat_picture_government_in_exile 
+	
+	priority = 20
+	
+	allowed = {
+		original_tag = SOV
+	}
+
+	visible = {
+		SOV = { NOT = { has_war_with = ENG } }
+		NOT = { has_global_flag = sov_yes_pact }
+		ENG = { exists = yes }
+		FRA = { exists = yes }
+	OR = {
+		GER = {
+			focus_progress = {
+				focus = GER_mol_rib_pact
+				progress > 0.5
+			}
+		}
+		date > 1939.8.15
+	}
+	}
+}
