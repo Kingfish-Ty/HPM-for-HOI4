@@ -21,6 +21,24 @@
 #	}
 # }
 
+allow_ahistorical = {
+	name = "RULE_ALLOW_AHISTORICAL"
+	group = "RULE_GROUP_HPM"
+	icon = "GFX_coups"
+	default = {
+		name = "ALTHISTORY_ALLOWED"
+		text = RULE_OPTION_ALLOW_AHISTORICAL
+		desc = "RULE_ALLOW_AHISTORICAL_DESC"
+	}
+	option = {
+		name = "ALTHISTORY_NOT_ALLOWED"
+		text = RULE_OPTION_DISALLOW_AHISTORICAL
+		desc = "RULE_DISALLOW_AHISTORICAL_DESC"
+	}
+}
+
+### HPM Additions Above
+
 allow_wargoals = {
 	name = "RULE_ALLOW_WARGOALS"
 	group = "RULE_GROUP_GENERAL_FOREIGN_POLICY"

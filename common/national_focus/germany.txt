@@ -2603,6 +2603,14 @@ focus_tree = {
 		y = 1
 		relative_position_id = GER_mol_rib_pact
 		cost = 10
+
+		allow_branch = {
+			has_game_rule = {
+				rule = allow_ahistorical
+				option = ALTHISTORY_ALLOWED
+			}
+		}
+
 		ai_will_do = {
 			factor = 0.01
 			modifier = {
@@ -2863,6 +2871,14 @@ focus_tree = {
 		y = 3
 		relative_position_id = GER_anti_comitern_pact
 		cost = 10
+
+		allow_branch = {
+			has_game_rule = {
+				rule = allow_ahistorical
+				option = ALTHISTORY_ALLOWED
+			}
+		}
+
 		ai_will_do = {
 			factor = 2.5	
 		}
@@ -3639,6 +3655,14 @@ focus_tree = {
 		y = 1
 		relative_position_id = GER_anschluss
 		cost = 10
+
+		available = {
+			has_game_rule = {
+				rule = allow_ahistorical
+				option = ALTHISTORY_ALLOWED
+			}
+		}
+
 		ai_will_do = {
 			factor = 2.5
 			modifier = {
@@ -4254,6 +4278,14 @@ focus_tree = {
 		y = 1
 		relative_position_id = GER_end_of_czechoslovakia
 		cost = 10
+
+		available = {
+			has_game_rule = {
+				rule = allow_ahistorical
+				option = ALTHISTORY_ALLOWED
+			}
+		}
+
 		ai_will_do = {
 			factor = 0
 		}	
@@ -4925,6 +4957,14 @@ focus_tree = {
 		y = 1
 		relative_position_id = GER_plan_z
 		cost = 10
+
+		allow_branch = {
+			has_game_rule = {
+				rule = allow_ahistorical
+				option = ALTHISTORY_ALLOWED
+			}
+		}
+
 		ai_will_do = {
 			factor = 1
 		}	
@@ -5710,6 +5750,10 @@ focus_tree = {
 
 		allow_branch = {
 			has_dlc = "Waking the Tiger"
+			has_game_rule = {
+				rule = allow_ahistorical
+				option = ALTHISTORY_ALLOWED
+			}
 		}
 
 		available = {

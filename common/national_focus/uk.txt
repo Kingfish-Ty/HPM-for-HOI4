@@ -2456,6 +2456,14 @@ focus_tree = {
 		x = 33
 		y = 0
 		cost = 10
+
+		allow_branch = {
+			has_game_rule = {
+				rule = allow_ahistorical
+				option = ALTHISTORY_ALLOWED
+			}
+		}
+
 		ai_will_do = {
 			factor = 1
 			modifier = {
@@ -8414,6 +8422,10 @@ focus_tree = {
 
 		allow_branch = {
 			has_dlc = "Man the Guns"
+			has_game_rule = {
+				rule = allow_ahistorical
+				option = ALTHISTORY_ALLOWED
+			}
 		}
 
 		available = {
