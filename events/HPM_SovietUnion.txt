@@ -126,6 +126,12 @@ country_event = {
 	
 	option = {
 		name = soviet.hpm.3.a
+		trigger = {
+			has_game_rule = {
+				rule = allow_ahistorical
+				option = ALTHISTORY_ALLOWED
+			}
+		}
 		ai_chance = { 
 			factor = 10 
 			modifier = {
@@ -182,6 +188,12 @@ country_event = {
 	
 	option = {
 		name = soviet.hpm.4.a
+		trigger = {
+			has_game_rule = {
+				rule = allow_ahistorical
+				option = ALTHISTORY_ALLOWED
+			}
+		}
 		ai_chance = { 
 			factor = 10 
 			modifier = {
